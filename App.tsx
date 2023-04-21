@@ -1,17 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { StyleSheet } from 'react-native';
+import AppNav from './src/navigation/AppNav';
+import { View } from 'react-native'
 export default function App() {
   return (
-    <NavigationContainer>
-
-    </NavigationContainer>
+    <AppNav></AppNav>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 40,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
