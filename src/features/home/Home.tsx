@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, SafeAreaView, FlatList } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, FlatList, TouchableOpacity } from 'react-native'
 import React from 'react'
 
 export default function Home() {
@@ -42,7 +42,8 @@ export default function Home() {
             "image": "https://loremflickr.com/640/480/people",
             "is_redemption": true,
             "id": "5"
-        }]
+        }];
+
     return (
         <SafeAreaView style={styles.screenContainer}>
             <View style={{ marginHorizontal: 20 }}>
@@ -59,7 +60,24 @@ export default function Home() {
             <View style={{ margin: 20 }}>
                 <Text style={{ fontSize: 14, color: '#9B9898', fontWeight: '800' }}>TUS MOVIMIENTOS</Text>
             </View>
-
+            <FlatList
+                data={data}
+                // contentContainerStyle={{ marginVertical: 20 }}
+                ItemSeparatorComponent={() => <View style={{ height: 8 }}></View>}
+                ListHeaderComponent={() => <View style={{ height: 20 }}></View>}
+                ListFooterComponent={() => <View style={{ height: 20 }}></View>}
+                renderItem={(e) => {
+                    return (
+                        <View style={{ height: 55, width: 'auto', backgroundColor: 'red', borderBottomColor: '#000', borderBottomWidth: 2, marginHorizontal: 10 }}>
+                            <Text>{e.item.id}</Text>
+                        </View>
+                    )
+                }}
+                style={{ maxHeight: 350, height: 350, backgroundColor: 'lightgrey', marginHorizontal: 20, borderRadius: 10, }}
+            />
+            <TouchableOpacity style={{ marginTop: 43, height: 50, width: 353, backgroundColor: '#334FFA', alignSelf: 'center', borderRadius: 10, justifyContent: 'center', alignItems: 'center' }}>
+                <Text style={{ color: '#fff', fontSize: 16, fontWeight: '800' }}>Todos</Text>
+            </TouchableOpacity>
         </SafeAreaView>
     )
 }
@@ -67,6 +85,7 @@ export default function Home() {
 const styles = StyleSheet.create({
     screenContainer: {
         flex: 1,
+        backgroundColor: '#F8F8F8',
         marginTop: 60
     },
     screenTitleText: {
@@ -80,7 +99,15 @@ const styles = StyleSheet.create({
         color: "#020202"
     },
     pointsCard: {
-        backgroundColor: '#334FFA', height: 143, maxHeight: 143, width: 286, alignSelf: 'center', flex: 1, justifyContent: 'center', alignItems: 'center', borderRadius: 20,
+        backgroundColor: '#334FFA',
+        height: 143,
+        maxHeight: 143,
+        width: 286,
+        alignSelf: 'center',
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 20,
         shadowColor: "rgba(0,0,0,0.5)",
         shadowOffset: {
             width: 0,
