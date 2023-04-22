@@ -1,4 +1,5 @@
-import { StyleSheet, Text, View, SafeAreaView, FlatList, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, FlatList, TouchableOpacity, Image } from 'react-native'
+import { Fontisto } from '@expo/vector-icons';
 import React from 'react'
 
 export default function Home() {
@@ -60,24 +61,40 @@ export default function Home() {
             <View style={{ margin: 20 }}>
                 <Text style={{ fontSize: 14, color: '#9B9898', fontWeight: '800' }}>TUS MOVIMIENTOS</Text>
             </View>
-            <FlatList
-                data={data}
-                // contentContainerStyle={{ marginVertical: 20 }}
-                ItemSeparatorComponent={() => <View style={{ height: 8 }}></View>}
-                ListHeaderComponent={() => <View style={{ height: 20 }}></View>}
-                ListFooterComponent={() => <View style={{ height: 20 }}></View>}
-                renderItem={(e) => {
-                    return (
-                        <View style={{ height: 55, width: 'auto', backgroundColor: 'red', borderBottomColor: '#000', borderBottomWidth: 2, marginHorizontal: 10 }}>
-                            <Text>{e.item.id}</Text>
-                        </View>
-                    )
-                }}
-                style={{ maxHeight: 350, height: 350, backgroundColor: 'lightgrey', marginHorizontal: 20, borderRadius: 10, }}
-            />
-            <TouchableOpacity style={{ marginTop: 43, height: 50, width: 353, backgroundColor: '#334FFA', alignSelf: 'center', borderRadius: 10, justifyContent: 'center', alignItems: 'center' }}>
-                <Text style={{ color: '#fff', fontSize: 16, fontWeight: '800' }}>Todos</Text>
-            </TouchableOpacity>
+            <View style={{ marginHorizontal: 20 }}>
+                <FlatList
+                    data={data}
+                    // contentContainerStyle={{ marginVertical: 20 }}
+                    ItemSeparatorComponent={() => <View style={{ height: 8 }}></View>}
+                    ListHeaderComponent={() => <View style={{ height: 20 }}></View>}
+                    ListFooterComponent={() => <View style={{ height: 20 }}></View>}
+                    renderItem={({ item }) => {
+                        return (
+                            <TouchableOpacity key={item.id.toString()} activeOpacity={0.7} style={{ height: 55, marginHorizontal: 10, flexDirection: 'row', alignItems: 'center' }}>
+                                <Image
+                                    source={{ uri: 'https://reactjs.org/logo-og.png' }}
+                                    style={{ width: 55, height: 55, borderRadius: 10, marginRight: 11 }}
+                                />
+                                <View style={{ flexDirection: 'column', marginRight: 50 }}>
+                                    <Text style={{ color: '#000', fontSize: 14, fontWeight: '800', marginBottom: 7 }}>Nombre del producto</Text>
+                                    <Text style={{ color: '#000', fontSize: 12, fontWeight: '400' }}>26 de enero, 2019</Text>
+                                </View>
+                                <View style={{ flexDirection: 'row' }}>
+                                    <Text style={{ color: '#00B833', fontSize: 16, fontWeight: '800' }}>+</Text>
+                                    <Text style={{ color: '#000', fontSize: 16, fontWeight: '800' }}>100</Text>
+                                </View>
+                                <View style={{ position: 'absolute', right: 10 }}>
+                                    <Fontisto name="angle-right" size={12} color="#070707" />
+                                </View>
+                            </TouchableOpacity>
+                        )
+                    }}
+                    style={{ maxHeight: 350, height: 350, backgroundColor: 'lightgrey', borderRadius: 10, }}
+                />
+                <TouchableOpacity activeOpacity={0.7} style={{ marginTop: 43, maxHeight: 50, height: 50, width: '100%', backgroundColor: '#334FFA', alignSelf: 'center', borderRadius: 10, justifyContent: 'center', alignItems: 'center' }}>
+                    <Text style={{ color: '#fff', fontSize: 16, fontWeight: '800' }}>Todos</Text>
+                </TouchableOpacity>
+            </View>
         </SafeAreaView>
     )
 }
