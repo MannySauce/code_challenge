@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, SafeAreaView, FlatList, TouchableOpacity, Image
 import { Fontisto } from '@expo/vector-icons';
 import React from 'react'
 
-export default function Home() {
+export default function Ganados() {
     const data = [
         {
             "createdAt": "2022-12-09T06:34:25.607Z",
@@ -89,7 +89,7 @@ export default function Home() {
                             </TouchableOpacity>
                         )
                     }}
-                    style={{ maxHeight: 350, height: 350, backgroundColor: 'lightgrey', borderRadius: 10, }}
+                    style={{ maxHeight: 350, height: 350, backgroundColor: '#fff', borderRadius: 10, }}
                 />
                 <TouchableOpacity activeOpacity={0.7} style={{ marginTop: 43, maxHeight: 50, height: 50, width: '100%', backgroundColor: '#334FFA', alignSelf: 'center', borderRadius: 10, justifyContent: 'center', alignItems: 'center' }}>
                     <Text style={{ color: '#fff', fontSize: 16, fontWeight: '800' }}>Todos</Text>
@@ -102,8 +102,7 @@ export default function Home() {
 const styles = StyleSheet.create({
     screenContainer: {
         flex: 1,
-        backgroundColor: '#F8F8F8',
-        marginTop: 60
+        backgroundColor: '#F8F8F8'
     },
     screenTitleText: {
         fontSize: 20,
