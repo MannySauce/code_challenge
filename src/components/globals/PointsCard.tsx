@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { formatNumberWithCommas } from '../../utils/dataFormats';
-
+import { capitalizeFirstChar } from '../../utils/stringModifier';
 type PointsCardProps = {
     month: string,
     points: number
@@ -10,7 +10,7 @@ type PointsCardProps = {
 export default function PointsCard({ month, points }: PointsCardProps) {
     return (
         <View style={styles.pointsCard}>
-            <Text style={styles.pointsCardMonthText}>{month}</Text>
+            <Text style={styles.pointsCardMonthText}>{capitalizeFirstChar(month)}</Text>
             <Text style={styles.pointsText}>{formatNumberWithCommas(points)} pts</Text>
         </View>
     )

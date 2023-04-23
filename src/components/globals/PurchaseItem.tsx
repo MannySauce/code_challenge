@@ -2,21 +2,21 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import { Fontisto } from '@expo/vector-icons';
 import React from 'react'
 import { Purchase } from '../../types/purchaseTypes';
-
+import { formatDate } from '../../utils/dataFormats';
 type PurchaseItemProps = {
-    item?: Purchase
+    item: Purchase
 };
 
 export default function PurchaseItem({ item }: PurchaseItemProps) {
     return (
         <TouchableOpacity activeOpacity={0.7} style={styles.itemContainer}>
             <Image
-                source={{ uri: 'https://reactjs.org/logo-og.png' }}
+                source={require('../../assets/imgs/Placeholder_view_vector.png')} //dont forget to add real item image
                 style={styles.itemImgContainer}
             />
             <View style={styles.itemDescriptionContainer}>
                 <Text numberOfLines={2} style={styles.itemNameText}>{item?.product}</Text>
-                <Text style={styles.itemDateText}>26 de enero, 2019</Text>
+                <Text style={styles.itemDateText}>{formatDate(item?.createdAt)}</Text>
             </View>
             <View style={styles.itemPointsContainer}>
                 {item?.is_redemption ?

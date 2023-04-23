@@ -1,14 +1,20 @@
-export function extractMonth(dateString: string): string { // Asumiendo que siempre recibira un string de fecha valida a través del endpoint
-    const date = new Date(dateString);
-    const months = [
-        'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-        'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
-    ];
-    const monthIndex = date.getMonth();
-    const month = months[monthIndex];
-    return month;
-}
+export function extractMonth(tempDate: string | Date): string { // Asumiendo que siempre recibira un string de fecha valida a través del endpoint
+    let date: string | Date = "";
+    if (tempDate instanceof Date) {
+        date = new Date(tempDate);
+    }
+    return date.toLocaleString('es-MX', { month: 'long' });
+};
+
+export function formatDate(dateStr: string): string {
+    const date = new Date(dateStr);
+    const dayOfMonth = date.getDate();
+    const month = extractMonth(date);
+    const year = date.getFullYear();
+    const formatedStr = `${dayOfMonth} de ${month}, ${year}`
+    return formatedStr;
+};
 
 export function formatNumberWithCommas(points: number) {
     return points.toLocaleString(undefined, { useGrouping: true });
-}
+};

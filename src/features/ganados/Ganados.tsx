@@ -6,6 +6,7 @@ import PointsCard from '../../components/globals/PointsCard';
 import PurchaseList from '../../components/globals/PurchaseList';
 import Button from '../../components/globals/Button';
 import { Purchase } from '../../types/purchaseTypes';
+import { extractMonth } from '../../utils/dataFormats';
 import axios from 'axios';
 export default function Ganados() {
     const [data, setData] = useState<Purchase[]>([]);
@@ -51,10 +52,10 @@ export default function Ganados() {
     //         id: "5"
     //     }];
     useEffect(() => {
-        getData()
+        getData(getPoints)
     }, []);
 
-    function getData() {
+    function getData(callback: {}) {
         console.log('fetched')
         axios.get('https://6222994f666291106a29f999.mockapi.io/api/v1/products')
             .then(res => {
@@ -63,12 +64,18 @@ export default function Ganados() {
             .catch(error => {
                 console.log(error);
             });
+
     };
+
+    function getPoints() {
+        console.log("hey")
+    };
+
     return (
         <SafeAreaView style={styles.screenContainer}>
             <ScreenHeader title='Bienvenido de vuelta!' subTitle='Ruben Rodriguez' />
             <SectionTitle title='TUS PUNTOS' />
-            <PointsCard month='Diciembre' points={10000}></PointsCard>
+            <PointsCard month={extractMonth(new Date)} points={10000}></PointsCard>
             <SectionTitle title='TUS MOVIMIENTOS' />
             <View style={styles.purchaseListAndBtnContainer}>
                 <PurchaseList purchases={data} />
