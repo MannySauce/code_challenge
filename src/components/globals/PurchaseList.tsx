@@ -1,5 +1,5 @@
 import { StyleSheet, View, FlatList, ListRenderItemInfo } from 'react-native'
-import PurchaseItem from '../../components/globals/purchaseItem';
+import PurchaseItem from '../../components/globals/PurchaseItem';
 import { Purchase } from '../../types/purchaseTypes';
 import React from 'react'
 
@@ -25,7 +25,7 @@ export default function PurchaseList({ purchases }: PurchaseListProps) {
 
     const renderListItem = ({ item }: ListRenderItemInfo<Purchase>) => {
         return (
-            <PurchaseItem item={item}></PurchaseItem>
+            <PurchaseItem item={item} />
         )
     };
     return (

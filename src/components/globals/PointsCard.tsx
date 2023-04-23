@@ -1,16 +1,17 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { formatNumberWithCommas } from '../../utils/dataFormats';
 
 type PointsCardProps = {
     month: string,
-    points: string
+    points: number
 };
 
 export default function PointsCard({ month, points }: PointsCardProps) {
     return (
         <View style={styles.pointsCard}>
             <Text style={styles.pointsCardMonthText}>{month}</Text>
-            <Text style={styles.pointsText}>{points} pts</Text>
+            <Text style={styles.pointsText}>{formatNumberWithCommas(points)} pts</Text>
         </View>
     )
 }

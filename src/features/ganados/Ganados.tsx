@@ -7,6 +7,7 @@ import Button from '../../components/globals/Button';
 import { Purchase } from '../../types/purchaseTypes';
 
 export default function Ganados() {
+
     const data: Purchase[] = [
         {
             createdAt: "2022-12-09T06:34:25.607Z",
@@ -52,7 +53,7 @@ export default function Ganados() {
         <SafeAreaView style={styles.screenContainer}>
             <ScreenHeader title='Bienvenido de vuelta!' subTitle='Ruben Rodriguez' />
             <SectionTitle title='TUS PUNTOS' />
-            <PointsCard month='Diciembre' points='10000'></PointsCard>
+            <PointsCard month='Diciembre' points={10000}></PointsCard>
             <SectionTitle title='TUS MOVIMIENTOS' />
             <View style={styles.purchaseListAndBtnContainer}>
                 <PurchaseList purchases={data} />
