@@ -8,7 +8,7 @@ type ButtonProps = {
 
 export default function Button({ title, onPress }: ButtonProps) {
     return (
-        <TouchableOpacity activeOpacity={0.7} style={styles.todosBtn}>
+        <TouchableOpacity activeOpacity={0.7} onPress={onPress} style={styles.todosBtn}>
             <Text style={styles.todosBtnText}>{title}</Text>
         </TouchableOpacity>
     )

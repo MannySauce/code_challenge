@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, SafeAreaView } from 'react-native'
+import { StyleSheet, View, SafeAreaView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import ScreenHeader from '../../components/globals/ScreenHeader';
 import SectionTitle from '../../components/globals/SectionTitle';
 import PointsCard from '../../components/globals/PointsCard';
@@ -11,7 +12,7 @@ import { getPoints } from '../../utils/pointsHelper';
 import axios from 'axios';
 export default function Ganados() {
     const [data, setData] = useState<Purchase[]>([]);
-
+    const navigation = useNavigation();
     useEffect(() => {
         getData();
     }, []);
@@ -26,6 +27,10 @@ export default function Ganados() {
             });
     };
 
+    const handleNavigation = () => {
+        navigation.navigate("Todos" as never)
+    };
+
     return (
         <SafeAreaView style={styles.screenContainer}>
             <ScreenHeader title='Bienvenido de vuelta!' subTitle='Ruben Rodriguez' />
@@ -34,7 +39,7 @@ export default function Ganados() {
             <SectionTitle title='TUS MOVIMIENTOS' />
             <View style={styles.purchaseListAndBtnContainer}>
                 <PurchaseList purchases={data} />
-                <Button title="Todos" />
+                <Button title="Todos" onPress={handleNavigation} />
             </View>
         </SafeAreaView>
     )
