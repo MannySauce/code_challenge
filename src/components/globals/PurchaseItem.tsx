@@ -15,12 +15,16 @@ export default function PurchaseItem({ item }: PurchaseItemProps) {
                 style={styles.itemImgContainer}
             />
             <View style={styles.itemDescriptionContainer}>
-                <Text style={styles.itemNameText}>Nombre del producto</Text>
+                <Text numberOfLines={2} style={styles.itemNameText}>{item?.product}</Text>
                 <Text style={styles.itemDateText}>26 de enero, 2019</Text>
             </View>
             <View style={styles.itemPointsContainer}>
-                <Text style={styles.itemOperationIndicatorText}>+</Text>
-                <Text style={styles.itemPointsText}>100</Text>
+                {item?.is_redemption ?
+                    <Text style={[styles.itemOperationIndicatorText, { color: "#FF0000" }]}>-</Text>
+                    :
+                    <Text style={styles.itemOperationIndicatorText}>+</Text>
+                }
+                <Text style={styles.itemPointsText}>{item?.points}</Text>
             </View>
             <View style={styles.itemIconContainer}>
                 <Fontisto name="angle-right" size={12} color="#070707" />
@@ -44,7 +48,8 @@ const styles = StyleSheet.create({
     },
     itemDescriptionContainer: {
         flexDirection: 'column',
-        marginRight: 50
+        maxWidth: 180,
+        minWidth: 180
     },
     itemNameText: {
         color: '#000',
@@ -58,7 +63,9 @@ const styles = StyleSheet.create({
         fontWeight: '400'
     },
     itemPointsContainer: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        position: 'absolute',
+        right: 43
     },
     itemOperationIndicatorText: {
         color: '#00B833',
@@ -72,6 +79,6 @@ const styles = StyleSheet.create({
     },
     itemIconContainer: {
         position: 'absolute',
-        right: 10
+        right: 0
     }
 })
