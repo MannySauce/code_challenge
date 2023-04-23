@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, SafeAreaView } from 'react-native'
+import { StyleSheet, View, SafeAreaView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import ScreenHeader from '../../components/globals/ScreenHeader';
 import SectionTitle from '../../components/globals/SectionTitle';
 import PointsCard from '../../components/globals/PointsCard';
@@ -9,7 +10,6 @@ import { Purchase } from '../../types/purchaseTypes';
 import { extractMonth } from '../../utils/dataFormats';
 import { getPoints } from '../../utils/pointsHelper';
 import axios from 'axios';
-import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack/lib/typescript/src/types';
 import { RootStackParamsList } from '../../navigation/types/screenNavigations';
 export default function Ganados() {
@@ -29,6 +29,10 @@ export default function Ganados() {
             });
     };
 
+    const handleNavigation = () => {
+        navigation.navigate("Todos" as never)
+    };
+
     return (
         <SafeAreaView style={styles.screenContainer}>
             <ScreenHeader title='Bienvenido de vuelta!' subTitle='Ruben Rodriguez' />
@@ -37,8 +41,8 @@ export default function Ganados() {
             <SectionTitle title='TUS MOVIMIENTOS' />
             <View style={styles.purchaseListAndBtnContainer}>
                 <PurchaseList purchases={data} />
-                <Button title="Todos" />
             </View>
+            <Button title="Todos" onPress={handleNavigation} />
         </SafeAreaView>
     )
 }

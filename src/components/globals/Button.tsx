@@ -8,7 +8,7 @@ type ButtonProps = {
 
 export default function Button({ title, onPress }: ButtonProps) {
     return (
-        <TouchableOpacity activeOpacity={0.7} style={styles.todosBtn}>
+        <TouchableOpacity activeOpacity={0.7} onPress={onPress} style={styles.todosBtn}>
             <Text style={styles.todosBtnText}>{title}</Text>
         </TouchableOpacity>
     )
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         marginTop: 43,
         maxHeight: 50,
         height: 50,
-        width: '100%',
+        width: '90%',
         backgroundColor: '#334FFA',
         alignSelf: 'center',
         borderRadius: 10,

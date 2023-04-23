@@ -3,13 +3,17 @@ import { Fontisto } from '@expo/vector-icons';
 import React from 'react'
 import { Purchase } from '../../types/purchaseTypes';
 import { formatDate } from '../../utils/dataFormats';
+import { useNavigation } from '@react-navigation/native';
+import { RootStackParamsList } from '../../navigation/types/screenNavigations';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 type PurchaseItemProps = {
     item: Purchase
 };
 
 export default function PurchaseItem({ item }: PurchaseItemProps) {
+    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamsList>>();
     return (
-        <TouchableOpacity activeOpacity={0.7} style={styles.itemContainer}>
+        <TouchableOpacity activeOpacity={0.7} onPress={() => navigation.navigate('DetalleMovimiento', { item })} style={styles.itemContainer}>
             <Image
                 defaultSource={require('../../assets/imgs/Placeholder_view_vector.png')}
                 source={{ uri: item?.image }}
