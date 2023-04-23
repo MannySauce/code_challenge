@@ -11,7 +11,8 @@ export default function PurchaseItem({ item }: PurchaseItemProps) {
     return (
         <TouchableOpacity activeOpacity={0.7} style={styles.itemContainer}>
             <Image
-                source={require('../../assets/imgs/Placeholder_view_vector.png')} //dont forget to add real item image
+                defaultSource={require('../../assets/imgs/Placeholder_view_vector.png')}
+                source={{ uri: item?.image }}
                 style={styles.itemImgContainer}
             />
             <View style={styles.itemDescriptionContainer}>

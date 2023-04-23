@@ -52,11 +52,13 @@ export default function Ganados() {
     //         id: "5"
     //     }];
     useEffect(() => {
-        getData(getPoints)
+        getData();
     }, []);
+    useEffect(() => {
+        getPoints();
+    }, [data]);
 
-    function getData(callback: {}) {
-        console.log('fetched')
+    function getData() {
         axios.get('https://6222994f666291106a29f999.mockapi.io/api/v1/products')
             .then(res => {
                 setData(res.data);
@@ -64,18 +66,26 @@ export default function Ganados() {
             .catch(error => {
                 console.log(error);
             });
-
     };
 
     function getPoints() {
-        console.log("hey")
+        let result = 0;
+        for (let x = 0; x < data.length; x++) {
+            if (data[x].is_redemption) {
+                result -= data[x].points
+            }
+            else {
+                result += data[x].points
+            }
+        };
+        return result;
     };
 
     return (
         <SafeAreaView style={styles.screenContainer}>
             <ScreenHeader title='Bienvenido de vuelta!' subTitle='Ruben Rodriguez' />
             <SectionTitle title='TUS PUNTOS' />
-            <PointsCard month={extractMonth(new Date)} points={10000}></PointsCard>
+            <PointsCard month={extractMonth(new Date)} points={data ? getPoints() : 0}></PointsCard>
             <SectionTitle title='TUS MOVIMIENTOS' />
             <View style={styles.purchaseListAndBtnContainer}>
                 <PurchaseList purchases={data} />

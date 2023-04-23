@@ -28,6 +28,7 @@ export default function PurchaseList({ purchases }: PurchaseListProps) {
             <PurchaseItem item={item} />
         )
     };
+
     return (
         <FlatList
             data={purchases}
