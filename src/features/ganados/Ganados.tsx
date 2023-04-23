@@ -39,8 +39,8 @@ export default function Ganados() {
             <SectionTitle title='TUS MOVIMIENTOS' />
             <View style={styles.purchaseListAndBtnContainer}>
                 <PurchaseList purchases={data} />
-                <Button title="Todos" onPress={handleNavigation} />
             </View>
+            <Button title="Todos" onPress={handleNavigation} />
         </SafeAreaView>
     )
 }

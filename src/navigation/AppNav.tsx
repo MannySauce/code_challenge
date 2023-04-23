@@ -3,18 +3,24 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import GanadosScreen from '../features/ganados/Ganados';
 import TodosScreen from '../screens/Todos';
-
+import DetalleMovimientoScreen from '../screens/DetalleMovimiento';
+import {
+    SafeAreaProvider,
+} from 'react-native-safe-area-context';
 const Stack = createNativeStackNavigator();
 
-function App() {
+function AppNav() {
     return (
-        <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen name="Ganados" component={GanadosScreen} options={{ headerShown: false }} />
-                <Stack.Screen name="Todos" component={TodosScreen} options={{ headerShown: false }} />
-            </Stack.Navigator>
-        </NavigationContainer>
+        <SafeAreaProvider>
+            <NavigationContainer>
+                <Stack.Navigator>
+                    <Stack.Screen name="DetalleMovimiento" component={DetalleMovimientoScreen} options={{ headerShown: false }} />
+                    <Stack.Screen name="Ganados" component={GanadosScreen} options={{ headerShown: false }} />
+                    <Stack.Screen name="Todos" component={TodosScreen} options={{ headerShown: false }} />
+                </Stack.Navigator>
+            </NavigationContainer>
+        </SafeAreaProvider>
     );
 }
 
-export default App
+export default AppNav
