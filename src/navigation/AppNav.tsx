@@ -9,6 +9,7 @@ import {
     SafeAreaProvider,
 } from 'react-native-safe-area-context';
 import { RootStackParamsList } from './types/screenNavigations';
+
 const Stack = createNativeStackNavigator<RootStackParamsList>();
 
 function AppNav() {
@@ -26,4 +27,4 @@ function AppNav() {
     );
 }
 
-export default AppNav
+export default AppNav;

@@ -11,23 +11,11 @@ export default function PurchaseList({ purchases }: PurchaseListProps) {
 
     const keyExtractor = (item: Purchase) => item.id;
 
-    const renderListItemSeperator = () => {
-        return (
-            <View style={{ height: 8 }} />
-        )
-    };
+    const renderListItemSeperator = () => <View style={{ height: 8 }} />
 
-    const renderListHeaderFooterComponent = () => {
-        return (
-            <View style={{ height: 20 }} />
-        )
-    };
+    const renderListHeaderFooterComponent = () => <View style={{ height: 20 }} />
 
-    const renderListItem = ({ item }: ListRenderItemInfo<Purchase>) => {
-        return (
-            <PurchaseItem item={item} />
-        )
-    };
+    const renderListItem = ({ item }: ListRenderItemInfo<Purchase>) => <PurchaseItem item={item} />
 
     return (
         <FlatList
