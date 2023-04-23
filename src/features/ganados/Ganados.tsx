@@ -30,7 +30,7 @@ export default function Ganados() {
     };
 
     const handleNavigation = () => {
-        navigation.navigate("Todos" as never)
+        navigation.navigate("Todos")
     };
 
     return (
