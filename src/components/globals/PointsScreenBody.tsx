@@ -6,21 +6,21 @@ import ScreenHeader from './ScreenHeader';
 import SectionTitle from './SectionTitle';
 import PointsCard from './PointsCard';
 import PurchaseList from './PurchaseList';
-import Button from './Button';
 import { extractMonth } from '../../utils/dataFormats';
 import { getPoints } from '../../utils/pointsHelper';
-import usePurchases from '../../hooks/usePurchases';
+import { Purchase } from '../../types/purchaseTypes';
 type PointsScreenBodyProps = {
+    data: Purchase[]
     children: ReactNode;
 };
 
-export default function PointsScreenBody({ children }: PointsScreenBodyProps) {
-    const { data } = usePurchases();
+export default function PointsScreenBody({ children, data }: PointsScreenBodyProps) {
+
     return (
         <>
             <ScreenHeader title='Bienvenido de vuelta!' subTitle='Ruben Rodriguez' />
             <SectionTitle title='TUS PUNTOS' />
-            <PointsCard month={extractMonth(new Date)} points={data ? getPoints(data) : 0}></PointsCard>
+            <PointsCard month={extractMonth(new Date)} points={data ? getPoints(data) : 0} />
             <SectionTitle title='TUS MOVIMIENTOS' />
             <View style={styles.purchaseListAndBtnContainer}>
                 <PurchaseList purchases={data} />
