@@ -5,8 +5,8 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack/lib/ty
 import { RootStackParamsList } from '../navigation/types/screenNavigations';
 import PointsScreenBody from '../components/globals/PointsScreenBody';
 import Button from '../components/globals/Button';
-export default function Ganados() {
-    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamsList, 'Ganados'>>();
+export default function Canjeados() {
+    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamsList, 'Canjeados'>>();
     const handleNavigation = () => {
         navigation.pop();
     };

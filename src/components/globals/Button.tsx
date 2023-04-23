@@ -8,14 +8,14 @@ type ButtonProps = {
 
 export default function Button({ title, onPress }: ButtonProps) {
     return (
-        <TouchableOpacity activeOpacity={0.7} onPress={onPress} style={styles.todosBtn}>
-            <Text style={styles.todosBtnText}>{title}</Text>
+        <TouchableOpacity activeOpacity={0.7} onPress={onPress} style={styles.btnContainer}>
+            <Text style={styles.btnTitleText}>{title}</Text>
         </TouchableOpacity>
     )
 }
 
 const styles = StyleSheet.create({
-    todosBtn: {
+    btnContainer: {
         marginTop: 43,
         maxHeight: 50,
         height: 50,
@@ -24,9 +24,10 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         borderRadius: 10,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        flex: 1
     },
-    todosBtnText: {
+    btnTitleText: {
         color: '#fff',
         fontSize: 16,
         fontWeight: '800'
