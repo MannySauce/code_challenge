@@ -7,13 +7,14 @@ import DetalleMovimientoScreen from '../screens/DetalleMovimiento';
 import {
     SafeAreaProvider,
 } from 'react-native-safe-area-context';
-const Stack = createNativeStackNavigator();
+import { RootStackParamsList } from './types/screenNavigations';
+const Stack = createNativeStackNavigator<RootStackParamsList>();
 
 function AppNav() {
     return (
         <SafeAreaProvider>
             <NavigationContainer>
-                <Stack.Navigator>
+                <Stack.Navigator initialRouteName='Ganados'>
                     <Stack.Screen name="DetalleMovimiento" component={DetalleMovimientoScreen} options={{ headerShown: false }} />
                     <Stack.Screen name="Ganados" component={GanadosScreen} options={{ headerShown: false }} />
                     <Stack.Screen name="Todos" component={TodosScreen} options={{ headerShown: false }} />
