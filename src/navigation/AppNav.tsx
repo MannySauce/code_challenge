@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import GanadosScreen from '../features/home/Ganados';
+import GanadosScreen from '../features/ganados/Ganados';
 
 const Stack = createNativeStackNavigator();
 
