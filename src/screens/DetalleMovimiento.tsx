@@ -7,6 +7,7 @@ import {
 import Button from '../components/globals/Button';
 import { RootStackParamsList } from '../navigation/types/screenNavigations';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { formatDate } from '../utils/dataFormats';
 type DetalleMovimientoProps = NativeStackScreenProps<RootStackParamsList, 'DetalleMovimiento'>
 export default function DetalleMovimiento({ route, navigation }: DetalleMovimientoProps) {
     const insets = useSafeAreaInsets();
@@ -32,9 +33,9 @@ export default function DetalleMovimiento({ route, navigation }: DetalleMovimien
                 />
             </View>
             <SectionTitle title="Detalles del producto:" />
-            <Text style={styles.dateText}>Comprado el 26 de enero, 2019</Text>
+            <Text style={styles.dateText}>Comprado el {formatDate(item?.createdAt)}</Text>
             <SectionTitle title="Con esta compra acumulaste" />
-            <Text style={styles.pointsText}>{item?.points}</Text>
+            <Text style={styles.pointsText}>{item?.points} puntos</Text>
             <Button title='Aceptar' onPress={() => navigation.pop()}></Button>
         </View>
     )
