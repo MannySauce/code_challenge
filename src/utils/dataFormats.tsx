@@ -1,4 +1,4 @@
-export function extractMonth(tempDate: string | Date): string { // Asumiendo que siempre recibira un string de fecha valida a través del endpoint
+export function extractMonth(tempDate: string | Date): string {
     let date: string | Date = "";
     if (tempDate instanceof Date) {
         date = new Date(tempDate);

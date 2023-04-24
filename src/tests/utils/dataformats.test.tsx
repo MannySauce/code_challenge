@@ -1,7 +1,7 @@
 const { extractMonth, formatNumberWithCommas } = require('../../utils/dataFormats');
 
 describe('extractMonth', () => {
-    test('Extrae el mes y lo traduce', () => {
+    test('Extrae el mes y lo traduce a lenguaje español', () => {
         const result = extractMonth('2022-01-31');
         expect(result).toBe('Enero');
     });
