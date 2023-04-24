@@ -1,5 +1,4 @@
 import usePurchases from "./usePurchases";
-import React from 'react'
 
 export default function useFilteredPurchases(isCanjeados: boolean) {
     const { data, loading } = usePurchases();
