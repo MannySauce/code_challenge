@@ -34,7 +34,7 @@ export default function DetalleMovimiento({ route, navigation }: DetalleMovimien
             </View>
             <SectionTitle title="Detalles del producto:" />
             <Text style={styles.dateText}>Comprado el {formatDate(item?.createdAt)}</Text>
-            <SectionTitle title="Con esta compra acumulaste" />
+            <SectionTitle title="Con esta compra acumulaste:" />
             <Text style={styles.pointsText}>{item?.points} puntos</Text>
             <Button title='Aceptar' onPress={() => navigation.pop()}></Button>
         </View>
