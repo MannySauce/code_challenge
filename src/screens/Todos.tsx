@@ -27,7 +27,7 @@ export default function Todos() {
     return (
         <ScreenContainer>
             <PointsScreenBody data={data} />
-            <View style={{ flexDirection: 'row', flex: 1, marginTop: 43 }}>
+            <View style={{ flexDirection: 'row', flex: 1, marginTop: 43, marginHorizontal: 10 }}>
                 <View style={{ flex: 1 }}>
                     <Button title="Ganados" style={{ marginTop: 0 }} onPress={handleNavigationGanados} />
                 </View>
