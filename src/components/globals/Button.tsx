@@ -3,12 +3,13 @@ import React from 'react'
 
 type ButtonProps = {
     title: string,
+    style?: object,
     onPress?: () => void
 };
 
-export default function Button({ title, onPress }: ButtonProps) {
+export default function Button({ title, onPress, style }: ButtonProps) {
     return (
-        <TouchableOpacity activeOpacity={0.7} onPress={onPress} style={styles.btnContainer}>
+        <TouchableOpacity activeOpacity={0.7} onPress={onPress} style={[styles.btnContainer, { ...style }]}>
             <Text style={styles.btnTitleText}>{title}</Text>
         </TouchableOpacity>
     )

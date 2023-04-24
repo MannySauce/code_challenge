@@ -10,11 +10,10 @@ import { extractMonth } from '../../utils/dataFormats';
 import { getPoints } from '../../utils/pointsHelper';
 import { Purchase } from '../../types/purchaseTypes';
 type PointsScreenBodyProps = {
-    data: Purchase[]
-    children: ReactNode;
+    data: Purchase[];
 };
 
-export default function PointsScreenBody({ children, data }: PointsScreenBodyProps) {
+export default function PointsScreenBody({ data }: PointsScreenBodyProps) {
 
     return (
         <>
@@ -25,7 +24,6 @@ export default function PointsScreenBody({ children, data }: PointsScreenBodyPro
             <View style={styles.purchaseListAndBtnContainer}>
                 <PurchaseList purchases={data} />
             </View>
-            {children}
         </>
     )
 }

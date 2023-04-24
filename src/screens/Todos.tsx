@@ -26,12 +26,15 @@ export default function Todos() {
 
     return (
         <ScreenContainer>
-            <PointsScreenBody data={data}>
-                <View style={{ flexDirection: 'row', flex: 1 }}>
-                    <Button title="Ganados" onPress={handleNavigationGanados} />
-                    <Button title="Canjeados" onPress={handleNavigationCanjeados} />
+            <PointsScreenBody data={data} />
+            <View style={{ flexDirection: 'row', flex: 1, marginTop: 43 }}>
+                <View style={{ flex: 1 }}>
+                    <Button title="Ganados" style={{ marginTop: 0 }} onPress={handleNavigationGanados} />
                 </View>
-            </PointsScreenBody>
+                <View style={{ flex: 1 }}>
+                    <Button title="Canjeados" style={{ marginTop: 0 }} onPress={handleNavigationCanjeados} />
+                </View>
+            </View>
         </ScreenContainer>
     )
 }

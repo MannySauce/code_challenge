@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
     pointsCard: {
         backgroundColor: '#334FFA',
         height: 143,
+        minHeight: 143,
         maxHeight: 143,
         width: 286,
         alignSelf: 'center',

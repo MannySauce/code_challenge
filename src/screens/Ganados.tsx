@@ -20,9 +20,8 @@ export default function Ganados() {
 
     return (
         <ScreenContainer>
-            <PointsScreenBody data={data}>
-                <Button title="Todos" onPress={handleNavigation} />
-            </PointsScreenBody>
+            <PointsScreenBody data={data} />
+            <Button title="Todos" onPress={handleNavigation} />
         </ScreenContainer>
     )
 }

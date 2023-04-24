@@ -23,9 +23,8 @@ export default function Canjeados() {
 
     return (
         <ScreenContainer>
-            <PointsScreenBody data={data}>
-                <Button title="Todos" onPress={handleNavigation} />
-            </PointsScreenBody>
+            <PointsScreenBody data={data} />
+            <Button title="Todos" onPress={handleNavigation} />
         </ScreenContainer>
     )
 }
